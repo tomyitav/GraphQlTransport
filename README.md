@@ -1,6 +1,6 @@
 ## How to use
 
-In order for the MongoDB part of this example to work, you need to have MongoDB installed on your machine. All other required parts come with this package.
+In order for the MongoDB to work, you need to have MongoDB installed on your machine. All other required parts come with this package.
 
 ```sh
 npm install
