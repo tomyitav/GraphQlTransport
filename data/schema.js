@@ -5,7 +5,7 @@ type Car {
 
 # the schema allows the following two queries:
 type RootQuery {
-  car: [Car]
+  car(name: String): [Car]
 }
 
 

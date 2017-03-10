@@ -4,7 +4,6 @@ import casual from 'casual';
 import rp from 'request-promise';
 import _ from 'lodash';
 
-Mongoose.set('debug', true);
 const mongo = Mongoose.connect('mongodb://localhost:27017/trains', (err) => {
   if(err){
     console.error('Could not connect to MongoDB on port 27017');
