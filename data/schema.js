@@ -1,19 +1,31 @@
-const typeDefinitions = `
+import { makeExecutableSchema } from 'graphql-tools';
+
+import resolvers from './resolvers';
+
+const schema = `
 type Car {
  name: String
 }
 
-# the schema allows the following two queries:
-type RootQuery {
+# the schema allows the following query:
+type Query {
   car(name: String): [Car]
 }
 
-
-# we need to tell the server which types represent the root query
-# and root mutation types. We call them RootQuery and RootMutation by convention.
-schema {
-  query: RootQuery
+# this schema allows the following mutation:
+type Mutation {
+  updateCar (
+    name: String!
+  ): Car
 }
+
+type Subscription {
+  carUpdated: Car
+}
+
 `;
 
-export default [typeDefinitions];
+export default makeExecutableSchema({
+  typeDefs: schema,
+  resolvers,
+});

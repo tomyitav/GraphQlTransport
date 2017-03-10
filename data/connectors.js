@@ -1,8 +1,4 @@
-import Sequelize from 'sequelize';
 import Mongoose from 'mongoose';
-import casual from 'casual';
-import rp from 'request-promise';
-import _ from 'lodash';
 
 const mongo = Mongoose.connect('mongodb://localhost:27017/trains', (err) => {
   if(err){

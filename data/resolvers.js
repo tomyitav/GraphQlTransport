@@ -1,8 +1,9 @@
+import { find, filter } from 'lodash';
+import { pubsub } from './subscriptions';
 import { CarModel } from './connectors';
 
 const resolveFunctions = {
-  RootQuery: {
-
+  Query: {
       car (_, {name}){
           let where = {};
           if(name != undefined) {
@@ -14,7 +15,18 @@ const resolveFunctions = {
               }
           })
       }
+
+  },
+  Mutation: {
+      updateCar (name) {
+        console.log('Updating...');
+      }
+  },
+  Subscription: {
+      carUpdated(car) {
+      return car;
+    },
   }
-}
+};
 
 export default resolveFunctions;
