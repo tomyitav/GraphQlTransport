@@ -20,6 +20,14 @@ const resolveFunctions = {
   Mutation: {
       updateCar (_, {currName, newName}) {
         console.log('Updating  ' + currName + " with new name " + newName);
+        let where = {};
+        Object.assign(where, {name: currName});
+        CarModel.find(where ,(err, cars) => {
+          if(err) {
+              console.log('Got error - ' , err);
+          }
+          console.log('Found matching cars - ', cars)
+        })
       }
   },
   Subscription: {
