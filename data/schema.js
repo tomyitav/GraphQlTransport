@@ -15,7 +15,8 @@ type Query {
 # this schema allows the following mutation:
 type Mutation {
   updateCar (
-    name: String!
+    currName: String!
+    newName: String!
   ): Car
 }
 

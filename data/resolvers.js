@@ -18,8 +18,8 @@ const resolveFunctions = {
 
   },
   Mutation: {
-      updateCar (name) {
-        console.log('Updating...');
+      updateCar (_, {currName, newName}) {
+        console.log('Updating  ' + currName + " with new name " + newName);
       }
   },
   Subscription: {
