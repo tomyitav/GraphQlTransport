@@ -22,11 +22,12 @@ const resolveFunctions = {
         console.log('Updating  ' + currName + " with new name " + newName);
         let where = {};
         Object.assign(where, {name: currName});
-        CarModel.find(where ,(err, cars) => {
+        CarModel.findOneAndUpdate(where, {$set:{name:newName}} , {upsert : true}, (err, cars) => {
           if(err) {
               console.log('Got error - ' , err);
           }
-          console.log('Found matching cars - ', cars)
+          console.log('Found matching cars - ', cars);
+          console.log('Succesfully saved...');
         })
       }
   },
