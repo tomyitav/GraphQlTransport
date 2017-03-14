@@ -4,6 +4,7 @@ import resolvers from './resolvers';
 
 const schema = `
 type Car {
+ _id : String
  name: String
 }
 
