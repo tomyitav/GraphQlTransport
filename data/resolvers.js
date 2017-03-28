@@ -28,6 +28,8 @@ const resolveFunctions = {
           }
           console.log('Found matching cars - ', cars);
           console.log('Succesfully saved...');
+          pubsub.publish('carUpdated', cars);
+          return cars
         })
       }
   },
