@@ -20,6 +20,9 @@ type Mutation {
     newName: String!
   ): Car
 }
+type Mutation {
+  deleteCar(name: String): Car
+}
 
 type Subscription {
   carUpdated: Car
