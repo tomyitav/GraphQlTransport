@@ -19,8 +19,7 @@ type Mutation {
     currName: String!
     newName: String!
   ): Car
-}
-type Mutation {
+  
   deleteCar(name: String): Car
 }
 

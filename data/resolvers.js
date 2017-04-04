@@ -31,21 +31,33 @@ const resolveFunctions = {
           pubsub.publish('carUpdated', cars);
           return cars
         })
-      }
-  },
-  Mutation: {
+      },
+
       deleteCar (_, {name}) {
-        console.log('Deleting ' + name );
-        let where = {};
-        Object.assign(where, {name: name});
-        CarModel.findOneAndRemove(where, (err, cars) => {
-            if (err) {
-                console.log('Got error - ', err);
-            }
-          return cars
-        })
+          console.log('Deleting ' + name );
+          let where = {};
+          Object.assign(where, {name: name});
+          CarModel.findOneAndRemove(where, (err, cars) => {
+              if (err) {
+                  console.log('Got error - ', err);
+              }
+              return cars
+          })
       }
   },
+  // Mutation: {
+  //     deleteCar (_, {name}) {
+  //       console.log('Deleting ' + name );
+  //       let where = {};
+  //       Object.assign(where, {name: name});
+  //       CarModel.findOneAndRemove(where, (err, cars) => {
+  //           if (err) {
+  //               console.log('Got error - ', err);
+  //           }
+  //         return cars
+  //       })
+  //     }
+  // },
   Subscription: {
       carUpdated(car) {
       return car;
