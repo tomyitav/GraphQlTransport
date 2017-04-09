@@ -42,8 +42,15 @@ websocketServer.listen(WS_PORT, () => console.log( // eslint-disable-line no-con
   `Websocket Server is now running on http://localhost:${WS_PORT}`
 ));
 
-// eslint-disable-next-line
-new SubscriptionServer(
-  { subscriptionManager },
-  websocketServer
+const subscriptionServer = new SubscriptionServer(
+    {
+        onConnect: async (connectionParams) => {
+            // Implement if you need to handle and manage connection
+        },
+        subscriptionManager: subscriptionManager
+    },
+    {
+        server: websocketServer,
+        path: '/'
+    }
 );
