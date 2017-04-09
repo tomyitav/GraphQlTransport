@@ -26,8 +26,7 @@ const resolveFunctions = {
           if(err) {
               console.log('Got error - ' , err);
           }
-          console.log('Found matching cars - ', cars);
-          console.log('Succesfully saved...');
+          cars.name = newName;
           pubsub.publish('carUpdated', cars);
           return cars
         })
