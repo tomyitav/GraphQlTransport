@@ -20,6 +20,10 @@ type Mutation {
     newName: String!
   ): Car
   
+  addCar (
+    name: String!
+  ): Car
+  
   deleteCar(name: String): Car
 }
 

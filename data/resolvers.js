@@ -32,6 +32,17 @@ const resolveFunctions = {
         })
       },
 
+      addCar (_, {name}) {
+          let newCar = new CarModel({name})
+          newCar.save((err, savedCar) => {
+              if(err) {
+                  console.log('Got error - ', err)
+              }
+            console.log('Logging saved car-');
+            console.log(savedCar);
+        })
+      },
+
       deleteCar (_, {name}) {
           console.log('Deleting ' + name );
           let where = {};
