@@ -5,7 +5,7 @@
 Clone the repository and run `npm install`
 
 ```
-https://github.com/tomyitav/GraphQlTransport.git
+git clone https://github.com/tomyitav/GraphQlTransport.git
 npm install
 ```
 
