@@ -40,6 +40,7 @@ const resolveFunctions = {
               }
             console.log('Logging saved car-');
             console.log(savedCar);
+            pubsub.publish('carAdded', savedCar);
         })
       },
 
@@ -56,7 +57,10 @@ const resolveFunctions = {
       }
   },
   Subscription: {
-      carUpdated(car) {
+    carUpdated(car) {
+      return car;
+    },
+    carAdded(car) {
       return car;
     },
   }

@@ -29,6 +29,7 @@ type Mutation {
 
 type Subscription {
   carUpdated: Car
+  carAdded: Car
 }
 
 `;
