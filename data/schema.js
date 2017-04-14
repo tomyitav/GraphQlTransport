@@ -24,7 +24,7 @@ type Mutation {
     name: String!
   ): Car
   
-  deleteCar(name: String): Car
+  deleteCar(name: String!): Car
 }
 
 type Subscription {
