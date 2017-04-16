@@ -52,6 +52,8 @@ const resolveFunctions = {
               if (err) {
                   console.log('Got error - ', err);
               }
+              console.log('Removed car - ', cars);
+              pubsub.publish('carDeleted', cars);
               return cars
           })
       }
@@ -61,6 +63,9 @@ const resolveFunctions = {
       return car;
     },
     carAdded(car) {
+      return car;
+    },
+    carDeleted(car) {
       return car;
     },
   }
