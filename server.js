@@ -7,6 +7,7 @@ import { SubscriptionServer } from 'subscriptions-transport-ws';
 import { printSchema } from 'graphql/utilities/schemaPrinter';
 
 import { subscriptionManager } from './data/subscriptions';
+import {mongoConn} from './db/connect'
 import schema from './data/schema';
 
 const GRAPHQL_PORT = 8080;
