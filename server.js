@@ -8,7 +8,8 @@ import { printSchema } from 'graphql/utilities/schemaPrinter';
 
 import { subscriptionManager } from './data/subscriptions';
 import {mongoConn} from './db/connect'
-import schema from './data/schema';
+// import schema from './data/schema';
+import schema from './schema/schema';
 
 const GRAPHQL_PORT = 8080;
 const WS_PORT = 8090;
