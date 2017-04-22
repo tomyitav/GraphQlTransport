@@ -1,6 +1,6 @@
 import { makeExecutableSchema } from 'graphql-tools';
 
-import resolvers from './resolvers';
+import resolvers from '../resolvers/rootResolver';
 
 const schema = `
 type Car {
