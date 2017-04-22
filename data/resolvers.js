@@ -1,4 +1,3 @@
-import { find, filter } from 'lodash';
 import { pubsub } from './subscriptions';
 import { CarModel } from './connectors';
 
