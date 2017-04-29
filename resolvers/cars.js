@@ -1,4 +1,4 @@
-import { pubsub } from '../data/subscriptions';
+import { pubsub } from '../subscriptions/subscriptions';
 import {CarModel} from '../db/cars'
 
 const resolveFunctions = {
