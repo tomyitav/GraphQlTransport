@@ -1,4 +1,3 @@
-import { pubsub } from '../data/subscriptions';
 import {TrainModel} from '../db/trains'
 
 const resolveFunctions = {
