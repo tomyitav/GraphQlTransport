@@ -1,13 +1,12 @@
-import express from 'express';
-import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import { createServer } from 'http';
-import { SubscriptionServer } from 'subscriptions-transport-ws';
-import { printSchema } from 'graphql/utilities/schemaPrinter';
-import { subscriptionManager } from './subscriptions/subscriptions';
-import {mongoConn} from './db/connect'
-import schema from './schema/schema';
+import express from "express";
+import {graphqlExpress, graphiqlExpress} from "graphql-server-express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import {createServer} from "http";
+import {SubscriptionServer} from "subscriptions-transport-ws";
+import {printSchema} from "graphql/utilities/schemaPrinter";
+import {subscriptionManager} from "./subscriptions/subscriptions";
+import schema from "./graphql/schema/schema";
 
 const GRAPHQL_PORT = 8080;
 const WS_PORT = 8090;
