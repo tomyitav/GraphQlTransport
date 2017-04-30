@@ -1,5 +1,5 @@
 import {PubSub, SubscriptionManager} from "graphql-subscriptions";
-import schema from "../graphql/schema/schema";
+import schema from "../schema/schema";
 
 const pubsub = new PubSub();
 const subscriptionManager = new SubscriptionManager({
