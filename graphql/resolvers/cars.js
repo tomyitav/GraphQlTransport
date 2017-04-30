@@ -1,5 +1,5 @@
-import { pubsub } from '../subscriptions/subscriptions';
-import {CarModel} from '../db/cars'
+import { pubsub } from '../../subscriptions/subscriptions';
+import {CarModel} from '../../db/cars'
 
 const resolveFunctions = {
     Query: {

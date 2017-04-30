@@ -1,11 +1,6 @@
-import { makeExecutableSchema } from 'graphql-tools';
-import { mergeTypes } from 'merge-graphql-schemas';
-import carSchema from './cars'
-import trainSchema from './trains'
+import path from 'path';
+import { mergeGraphqlSchemas } from 'merge-graphql-schemas';
 
-import resolvers from '../resolvers/rootResolver';
+const schema = mergeGraphqlSchemas(path.join(__dirname, '../graphql'));
 
-export default makeExecutableSchema({
-    typeDefs: mergeTypes([carSchema, trainSchema]),
-    resolvers,
-});
+export default schema
