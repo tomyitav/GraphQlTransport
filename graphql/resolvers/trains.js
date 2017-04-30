@@ -1,4 +1,4 @@
-import {TrainModel} from '../db/trains'
+import {TrainModel} from '../../db/trains'
 
 const resolveFunctions = {
     Query: {
