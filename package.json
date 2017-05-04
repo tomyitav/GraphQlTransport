@@ -1,5 +1,5 @@
 {
-  "name": "apollo-starter-kit",
+  "name": "GraphQlTransport",
   "version": "0.1.0",
   "description": "Minimal set of code to write a GraphQL server with Apollo graphql-tools",
   "scripts": {
@@ -9,22 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/apollostack/apollo-starter-kit.git"
+    "url": "git+https://github.com/tomyitav/GraphQlTransport.git"
   },
   "keywords": [
     "Node.js",
     "Javascript",
     "GraphQL",
     "Express",
-    "Apollo",
-    "Meteor"
+    "Apollo"
   ],
-  "author": "Jonas Helfer <jonas@helfer.email>",
+  "author": "Tom Yitav <tomyitav@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/apollostack/apollo-starter-kit/issues"
-  },
-  "homepage": "https://github.com/apollostack/apollo-starter-kit#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "cors": "^2.8.0",
