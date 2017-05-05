@@ -15,6 +15,16 @@ const resolveFunctions = {
         }
 
     },
+    Mutation: {
+        addTrain (_, {name, speed, diesel}) {
+            let newTrain = new TrainModel({name, speed, diesel})
+            newTrain.save((err, savedTrain) => {
+                if(err) {
+                    console.log('Got error - ', err)
+                }
+            })
+        },
+    }
 };
 
 export default resolveFunctions;
