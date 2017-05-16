@@ -1,4 +1,5 @@
 import {TrainModel} from '../../db/trains'
+import {pubsub} from '../subscriptions/subscriptions'
 
 const resolveFunctions = {
     Query: {
@@ -21,6 +22,7 @@ const resolveFunctions = {
             newTrain.save((err, savedTrain) => {
                 if(err) {
                     console.log('Got error - ', err)
+                    pubsub.publish('trainAdded', savedTrain);
                 }
             })
         },
@@ -34,9 +36,21 @@ const resolveFunctions = {
                     console.log('Got error - ', err);
                 }
                 console.log('Removed train - ', trains);
+                pubsub.publish('trainDeleted', trains);
                 return trains;
             })
         }
+    },
+    Subscription: {
+        trainUpdated(train) {
+            return train;
+        },
+        trainAdded(train) {
+            return train;
+        },
+        trainDeleted(train) {
+            return train;
+        },
     }
 };
 
