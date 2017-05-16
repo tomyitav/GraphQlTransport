@@ -24,6 +24,19 @@ const resolveFunctions = {
                 }
             })
         },
+
+        deleteTrain(_, {name}) {
+            console.log('Deleting ' + name );
+            let where = {};
+            Object.assign(where, {name: name});
+            TrainModel.findOneAndRemove(where, (err, trains) => {
+                if (err) {
+                    console.log('Got error - ', err);
+                }
+                console.log('Removed train - ', trains);
+                return trains;
+            })
+        }
     }
 };
 
