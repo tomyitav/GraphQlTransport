@@ -17,6 +17,20 @@ const resolveFunctions = {
 
     },
     Mutation: {
+        updateTrain (_, {currName, newName, newSpeed, newDiesel}) {
+            console.log('Updating  ' + currName + " with new name " + newName);
+            let where = {};
+            Object.assign(where, {name: currName});
+            TrainModel.findOneAndUpdate(where, {$set:{name:newName, speed:newSpeed, diesel:newDiesel}} , {upsert : true}, (err, trains) => {
+                if(err) {
+                    console.log('Got error - ' , err);
+                }
+                trains.name = newName;
+                pubsub.publish('trainUpdated', trains);
+                return trains
+            })
+        },
+
         addTrain (_, {name, speed, diesel}) {
             let newTrain = new TrainModel({name, speed, diesel})
             newTrain.save((err, savedTrain) => {

@@ -7,6 +7,13 @@ type Train {
 }
 
 type Mutation {
+  updateTrain (
+    currName: String!
+    newName: String!
+    newSpeed: Int!
+    newDiesel: Boolean!
+  ): Train
+
   addTrain (
     name: String!
     speed: Int!
