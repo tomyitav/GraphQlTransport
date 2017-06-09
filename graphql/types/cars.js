@@ -2,6 +2,7 @@ const schema = `
 type Car {
  _id : String
  name: String
+ station: String
 }
 
 # the schema allows the following query:
