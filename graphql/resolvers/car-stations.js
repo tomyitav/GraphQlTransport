@@ -1,4 +1,3 @@
-import {pubsub} from "../subscriptions/subscriptions";
 import {CarStationModel} from "../../db/car-stations";
 import {CarModel} from "../../db/cars";
 
@@ -25,11 +24,6 @@ const resolveFunctions = {
             })
         }
     }
-    // CarStation: {
-    //     cars(station) {
-    //         return CarModel.find({station: station}, (err, ))
-    //     }
-    // }
 };
 
 export default resolveFunctions;
