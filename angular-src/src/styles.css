@@ -1,0 +1,16 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+
+body {
+  background: lightgray;
+}
+
+div * {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-weight: bold;
+}
+
+.jumbotron {
+  width: 50%;
+  background-color: #98998c;
+}

@@ -8,6 +8,7 @@ import {printSchema} from "graphql/utilities/schemaPrinter";
 import {connectToDb} from './db/connect'
 import {subscriptionManager} from "./graphql/subscriptions/subscriptions";
 import schema from "./graphql/schema/schema";
+import path from "path"
 
 const GRAPHQL_PORT = 8080;
 const WS_PORT = 8090;
@@ -33,6 +34,15 @@ graphQLServer.use('/schema', (req, res) => {
 graphQLServer.listen(GRAPHQL_PORT, () => console.log(
   `GraphQL Server is now running on http://localhost:${GRAPHQL_PORT}/graphql`
 ));
+
+graphQLServer.use(express.static(path.join(__dirname, 'public')));
+
+graphQLServer.get('/', (req, res, next) => {
+});
+graphQLServer.get('/cars', (req, res, next) => {
+});
+graphQLServer.get('/trains', (req, res, next) => {
+});
 
 // WebSocket server for subscriptions
 const websocketServer = createServer((request, response) => {
