@@ -1,0 +1,41 @@
+<div class="row" >
+  <div class="container">
+    <div class="large-10 columns">
+      <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+          <th width="200px">Id</th>
+          <th width="230px">Name</th>
+          <th width="25%">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let car of cars ; let i = index">
+          <td><a href="#">{{car._id}}</a></td>
+          <td>{{car.name}}</td>
+          <td><a class="btn btn-success" (click)="showEditForm(car)" name={{car.name}}>Edit</a>
+            <a class="btn btn-danger" title="Sure???" data-toggle="confirmation"
+               data-singleton="true" data-popout="true" (click)="deleteCar(car)">Delete</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <form class="container" #carForm = "ngForm"
+          (ngSubmit)="onSubmit(carForm.value.newName)" [hidden]="!formShown">
+      <div class="jumbotron">
+        <div class="form-group">
+          <h3>{{editModeText}} car</h3>
+          <label>Name:
+            <input type="text" class="form-control" name="newName" ngModel/>
+          </label>
+          <div>
+            <button class="btn btn-info" type="submit">{{editModeText}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <app-form-shower [(showed)]="formShown" [(editText)]="editModeText"></app-form-shower>
+  </div>
+</div>

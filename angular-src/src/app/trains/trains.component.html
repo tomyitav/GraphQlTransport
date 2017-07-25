@@ -1,0 +1,55 @@
+<div class="row" >
+  <div class="container">
+    <div class="large-10 columns">
+      <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+          <th width="20%">Id</th>
+          <th width="20%">Name</th>
+          <th width="20%">speed</th>
+          <th width="20%">diesel</th>
+          <th width="20%">action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let train of trains ; let i = index">
+          <td><a href="#">{{train._id}}</a></td>
+          <td>{{train.name}}</td>
+          <td>{{train.speed}}</td>
+          <td>{{train.diesel}}</td>
+          <td><a class="btn btn-success" (click)="showEditForm(train)" name={{train.name}}>Edit</a>
+            <a class="btn btn-danger" title="Sure???" data-toggle="confirmation"
+               data-singleton="true" data-popout="true" (click)="deleteTrain(train)">Delete</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <form class="container" #trainForm = "ngForm"
+          (ngSubmit)="onSubmit(trainForm.value.newName, trainForm.value.newSpeed, trainForm.value.newDiesel)" [hidden]="!formShown">
+      <div class="form-group">
+        <div class="jumbotron">
+          <h3>{{editModeText}} train</h3>
+          <div>
+            <label>Name:
+              <input type="text" class="form-control" name="newName" ngModel/>
+            </label>
+          </div>
+          <div>
+            <label>Speed:
+              <input type="number" class="form-control" name="newSpeed" ngModel/>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="newDiesel" ngModel>Diesel</label>
+          </div>
+          <div>
+            <button class="btn btn-info" type="submit">{{editModeText}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <app-form-shower [(showed)]="formShown" [(editText)]="editModeText"></app-form-shower>
+  </div>
+</div>
