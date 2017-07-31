@@ -14,3 +14,20 @@ div * {
   width: 50%;
   background-color: #98998c;
 }
+
+.md-dialog-container {
+  background-color: #000;
+  width: 250px;
+  height: 250px
+}
+
+.wrap-cont {
+  margin: 2px;
+}
+/*md-dialog-container {*/
+  /*position: fixed;*/
+  /*left: 20%;*/
+  /*top: 0%;*/
+  /*background-color: white;*/
+  /*z-index: 100000;*/
+/*}*/

@@ -18,6 +18,7 @@ import {TrainsComponent} from "./trains/trains.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {ApolloTrainsService} from "./services/apollo-trains/apollo-trains.service";
 import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2-logger/core";
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2
     TransportToolbarComponent,
     FormShowerComponent,
     TrainsComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,8 +58,9 @@ import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2
       }
     ])
   ],
-  providers: [ApolloCarsService, ApolloTrainsService, Logger,
+  providers: [ApolloCarsService , ApolloTrainsService, Logger,
     { provide: LoggerOptions, useValue: { level: LoggerLevel.INFO }}],
+  entryComponents: [DeleteDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

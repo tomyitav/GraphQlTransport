@@ -1,5 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 import {ApolloCarsService} from "../services/apollo-cars/apollo-cars.service";
+import {MdDialog, MdDialogRef} from '@angular/material';
+import {DeleteDialogComponent} from "../delete-dialog/delete-dialog.component";
+
 
 @Component({
   selector: 'app-cars',
@@ -14,7 +17,7 @@ export class CarsComponent implements OnInit {
   selectedCar;
   editModeText = this.addText;
   formShown = false;
-  constructor(private apolloCars: ApolloCarsService) {
+  constructor(private apolloCars: ApolloCarsService, private dialog: MdDialog) {
     this.getCars();
     this.startSubscriptions();
   }
@@ -91,7 +94,15 @@ export class CarsComponent implements OnInit {
   }
 
   deleteCar(car) {
-    this.apolloCars.deleteCar(car.name);
+    let dialogRef = this.dialog.open(DeleteDialogComponent, {
+      height: '400px',
+      width: '600px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.apolloCars.deleteCar(car.name);
+      }
+    });
   }
 
 }
