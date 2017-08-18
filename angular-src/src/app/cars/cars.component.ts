@@ -1,8 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {ApolloCarsService} from "../services/apollo-cars/apollo-cars.service";
-import {MdDialog, MdDialogRef} from '@angular/material';
-import {DeleteDialogComponent} from "../delete-dialog/delete-dialog.component";
-import {Popup} from 'ng2-opd-popup';
+import {DeleteDialogService} from "../services/delete-dialog/delete-dialog.service";
 
 @Component({
   selector: 'app-cars',
@@ -19,7 +17,7 @@ export class CarsComponent implements OnInit {
   formShown = false;
   modalOption = false;
   constructor(private apolloCars: ApolloCarsService,
-              private popup: Popup) {
+              private deleteDialog: DeleteDialogService) {
     this.getCars();
     this.startSubscriptions();
   }
@@ -96,16 +94,14 @@ export class CarsComponent implements OnInit {
   }
 
   deleteCar(car) {
-    this.popup.options = {
-      color: "#4180ab",
-      header: "Are you sure?",
-      }
-    this.popup.show();
-    console.log('Deleting!');
+    console.log('Logging car: ', car);
+    this.selectedCar = car.name;
+    this.deleteDialog.show();
   }
 
-  confirm() {
-    console.log('confirming!!!');
-    this.popup.hide();
+  confirmDelete() {
+    console.log('Deleting car...');
+    this.apolloCars.deleteCar(this.selectedCar);
+    this.deleteDialog.hide();
   }
 }

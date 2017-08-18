@@ -18,8 +18,8 @@ import {TrainsComponent} from "./trains/trains.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {ApolloTrainsService} from "./services/apollo-trains/apollo-trains.service";
 import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2-logger/core";
-import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { PopupModule } from 'ng2-opd-popup';
+import { DeleteDialogService } from './services/delete-dialog/delete-dialog.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,6 @@ import { PopupModule } from 'ng2-opd-popup';
     TransportToolbarComponent,
     FormShowerComponent,
     TrainsComponent,
-    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,8 +60,7 @@ import { PopupModule } from 'ng2-opd-popup';
     ])
   ],
   providers: [ApolloCarsService , ApolloTrainsService, Logger,
-    { provide: LoggerOptions, useValue: { level: LoggerLevel.INFO }}],
-  entryComponents: [DeleteDialogComponent],
+    { provide: LoggerOptions, useValue: { level: LoggerLevel.INFO }}, DeleteDialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
