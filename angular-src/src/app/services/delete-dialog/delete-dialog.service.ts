@@ -6,6 +6,8 @@ export class DeleteDialogService {
 
   constructor(private popup: Popup) {
     this.popup.options = {
+      confirmBtnClass: 'btn-primary',
+      cancleBtnClass: 'btn-danger',
       color: "#aba27e",
       header: "Are you sure?",
     }

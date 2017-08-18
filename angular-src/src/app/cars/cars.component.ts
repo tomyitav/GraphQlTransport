@@ -94,7 +94,6 @@ export class CarsComponent implements OnInit {
   }
 
   deleteCar(car) {
-    console.log('Logging car: ', car);
     this.selectedCar = car.name;
     this.deleteDialog.show();
   }
