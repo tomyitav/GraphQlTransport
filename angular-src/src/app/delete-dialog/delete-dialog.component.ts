@@ -8,9 +8,13 @@ import {MdDialogRef} from '@angular/material';
 })
 export class DeleteDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MdDialogRef<DeleteDialogComponent>) { }
+  constructor() { }
 
   ngOnInit() {
+  }
+
+  deleteAprove() {
+    console.log('Deleting!!!');
   }
 
 }

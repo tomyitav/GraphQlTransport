@@ -39,3 +39,6 @@
     <app-form-shower [(showed)]="formShown" [(editText)]="editModeText"></app-form-shower>
   </div>
 </div>
+<popup (confirmClick)="confirm()">
+  <app-delete-dialog></app-delete-dialog>
+</popup>

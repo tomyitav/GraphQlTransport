@@ -19,6 +19,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {ApolloTrainsService} from "./services/apollo-trains/apollo-trains.service";
 import { Logger, Options as LoggerOptions, Level as LoggerLevel } from "angular2-logger/core";
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { PopupModule } from 'ng2-opd-popup';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
     MdDialogModule,
     ApolloModule.withClient(getClient),
     FlexLayoutModule,
+    PopupModule.forRoot(),
     NgbModule.forRoot(),
     RouterModule.forRoot([
       {

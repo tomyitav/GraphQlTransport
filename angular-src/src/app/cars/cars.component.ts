@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {ApolloCarsService} from "../services/apollo-cars/apollo-cars.service";
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {DeleteDialogComponent} from "../delete-dialog/delete-dialog.component";
-
+import {Popup} from 'ng2-opd-popup';
 
 @Component({
   selector: 'app-cars',
@@ -17,7 +17,9 @@ export class CarsComponent implements OnInit {
   selectedCar;
   editModeText = this.addText;
   formShown = false;
-  constructor(private apolloCars: ApolloCarsService, private dialog: MdDialog) {
+  modalOption = false;
+  constructor(private apolloCars: ApolloCarsService,
+              private popup: Popup) {
     this.getCars();
     this.startSubscriptions();
   }
@@ -94,15 +96,16 @@ export class CarsComponent implements OnInit {
   }
 
   deleteCar(car) {
-    let dialogRef = this.dialog.open(DeleteDialogComponent, {
-      height: '400px',
-      width: '600px',
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        this.apolloCars.deleteCar(car.name);
+    this.popup.options = {
+      color: "#4180ab",
+      header: "Are you sure?",
       }
-    });
+    this.popup.show();
+    console.log('Deleting!');
   }
 
+  confirm() {
+    console.log('confirming!!!');
+    this.popup.hide();
+  }
 }
