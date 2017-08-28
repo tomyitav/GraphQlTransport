@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ApolloTrainsService} from "../services/apollo-trains/apollo-trains.service";
 import { Logger } from "angular2-logger/core";
+import {DeleteDialogService} from "../services/delete-dialog/delete-dialog.service";
 
 @Component({
   selector: 'app-trains',
@@ -15,7 +16,10 @@ export class TrainsComponent implements OnInit {
   selectedTrain;
   editModeText = this.addText;
   formShown = false;
-  constructor(private logger: Logger, private apolloTrain: ApolloTrainsService) {
+
+  constructor(private logger: Logger,
+              private apolloTrain: ApolloTrainsService,
+              private deleteDialog: DeleteDialogService) {
     this.getTrains();
     this.startSubscriptions();
   }
@@ -85,13 +89,20 @@ export class TrainsComponent implements OnInit {
 
   deleteTrain(train) {
     console.log('Deleting train - ', train.name);
-    this.apolloTrain.deleteTrain(train.name);
+    this.selectedTrain  = train;
+    this.deleteDialog.show();
   }
 
   showEditForm(train) {
     this.editModeText = this.editText;
     this.selectedTrain = train;
     this.formShown = true;
+  }
+
+  confirmDelete() {
+    console.log('Deleting car...');
+    this.apolloTrain.deleteTrain(this.selectedTrain.name);
+    this.deleteDialog.hide();
   }
 
 }
