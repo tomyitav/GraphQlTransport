@@ -15,11 +15,6 @@ div * {
   background-color: #98998c;
 }
 
-/*.md-dialog-container {*/
-  /*background-color: #000;*/
-  /*width: 250px;*/
-  /*height: 250px*/
-/*}*/
 
 .wrap-cont {
   margin: 2px;
@@ -36,10 +31,30 @@ md-dialog-container mat-dialog-container {
   z-index: 10000;
   background: gray;
 }
-/*md-dialog-container {*/
-  /*position: fixed;*/
-  /*left: 20%;*/
-  /*top: 0%;*/
-  /*background-color: white;*/
-  /*z-index: 100000;*/
-/*}*/
+
+.head {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.table-fixed thead {
+  width: 98.5%;
+}
+.table-fixed tbody {
+  height: 430px;
+  overflow-y: scroll;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+
+div.panel.panel-default {
+  width: 90%;
+}
+
+
